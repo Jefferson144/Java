@@ -9,6 +9,8 @@ import MetodoSQL.MetodoSQL;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+//autor libre
+
 public class Interfaz_agregar_documento extends javax.swing.JFrame {
 
     /**

@@ -8,6 +8,8 @@ package empresa;
 import MetodoSQL.MetodoSQL;
 import javax.swing.JOptionPane;
 
+//autor libre
+
 public class Interfaz_agregar_producto extends javax.swing.JFrame {
 
     /**

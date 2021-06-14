@@ -8,6 +8,8 @@ package empresa;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
+//autor libre
+
 public class Interfaz extends javax.swing.JFrame {
 
     /**

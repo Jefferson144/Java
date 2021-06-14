@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package empresa;
-
+//le quite el autor para que sea libre xD
 public class Empresa {
 
     /**
@@ -12,5 +12,6 @@ public class Empresa {
      */
     public static void main(String[] args) {
         Interfaz.main(args);
+        //hola espero que te sirva el proyecto
     }
 }

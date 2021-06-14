@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import javax.swing.table.DefaultTableModel;
 
+//Autor libre
 
 public class Buscar extends javax.swing.JFrame {
 
