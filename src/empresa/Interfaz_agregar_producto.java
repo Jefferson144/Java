@@ -8,7 +8,6 @@ package empresa;
 import MetodoSQL.MetodoSQL;
 import javax.swing.JOptionPane;
 
-
 public class Interfaz_agregar_producto extends javax.swing.JFrame {
 
     /**
@@ -18,10 +17,10 @@ public class Interfaz_agregar_producto extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     MetodoSQL metodos = new MetodoSQL();
-    
-    public void limpiarcajas(){
+
+    public void limpiarcajas() {
         txt_cantidad_producto.setText(null);
         txt_cod_barras.setText(null);
         txt_producto.setText(null);
@@ -62,11 +61,35 @@ public class Interfaz_agregar_producto extends javax.swing.JFrame {
 
         Jl_producto.setText("Producto");
 
+        txt_producto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_productoKeyTyped(evt);
+            }
+        });
+
         jLabel1.setText("Codigo de barras");
+
+        txt_cod_barras.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_cod_barrasKeyTyped(evt);
+            }
+        });
 
         Jl_cantidad.setText("Cantidad");
 
         Jl_valor.setText("valor");
+
+        txt_cantidad_producto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_cantidad_productoKeyTyped(evt);
+            }
+        });
+
+        txt_valor_producto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_valor_productoKeyTyped(evt);
+            }
+        });
 
         btn_guardar.setText("guardar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +227,7 @@ public class Interfaz_agregar_producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
-        if (txt_cod_barras.getText().isEmpty() || txt_producto.getText().isEmpty() || txt_cantidad_producto.getText().isEmpty() || txt_valor_producto.getText().isEmpty()){
+        if (txt_cod_barras.getText().isEmpty() || txt_producto.getText().isEmpty() || txt_cantidad_producto.getText().isEmpty() || txt_valor_producto.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Rellene todos los campos para insertar");
             limpiarcajas();
         } else {
@@ -220,17 +243,17 @@ public class Interfaz_agregar_producto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        if (txt_cod_barras.getText().isEmpty()){
+        if (txt_cod_barras.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se puede eliminar el producto porque falta rellenar el codigo de barras para eliminar");
             limpiarcajas();
-        }else {
+        } else {
             metodos.Eliminar_producto(txt_cod_barras.getText());
             limpiarcajas();
         }
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        if (txt_cod_barras.getText().isEmpty()){
+        if (txt_cod_barras.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "No se puede actualizar porque falta rellenar el codigo de barras para actualizar");
             limpiarcajas();
         } else {
@@ -238,6 +261,42 @@ public class Interfaz_agregar_producto extends javax.swing.JFrame {
             limpiarcajas();
         }
     }//GEN-LAST:event_btn_actualizarActionPerformed
+
+    private void txt_cod_barrasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cod_barrasKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_cod_barrasKeyTyped
+
+    private void txt_productoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_productoKeyTyped
+        char c = evt.getKeyChar();
+        if (txt_producto.getText().length() >= 45) {
+            evt.consume();
+        } else {
+            if (Character.isDigit(c)) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txt_productoKeyTyped
+
+    private void txt_cantidad_productoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cantidad_productoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_cantidad_productoKeyTyped
+
+    private void txt_valor_productoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_valor_productoKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isLetter(c)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_txt_valor_productoKeyTyped
 
     /**
      * @param args the command line arguments

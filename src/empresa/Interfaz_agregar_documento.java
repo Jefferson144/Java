@@ -64,9 +64,21 @@ public class Interfaz_agregar_documento extends javax.swing.JFrame {
 
         Jl_agregar_documento.setText("Documento nuevo");
 
+        txt_documento_nuevo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_documento_nuevoKeyTyped(evt);
+            }
+        });
+
         Jl_documentos.setText("Documentos de la empresa");
 
         Jl_documento_actualizar.setText("Documento a actualizar");
+
+        txt_documento_actualizar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_documento_actualizarKeyTyped(evt);
+            }
+        });
 
         btn_guardar.setText("Guardar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
@@ -205,6 +217,30 @@ public class Interfaz_agregar_documento extends javax.swing.JFrame {
         Interfaz ob = new Interfaz();
         ob.setVisible(true);
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void txt_documento_nuevoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_documento_nuevoKeyTyped
+        char c = evt.getKeyChar();
+        if (txt_documento_nuevo.getText().length() >= 45) {
+            evt.consume();
+        } else {
+            if (Character.isDigit(c)) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txt_documento_nuevoKeyTyped
+
+    private void txt_documento_actualizarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_documento_actualizarKeyTyped
+        char c = evt.getKeyChar();
+        if (txt_documento_actualizar.getText().length() >=45){
+            evt.consume();
+        } else {
+            if (Character.isDigit(c)){
+                getToolkit().beep();
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txt_documento_actualizarKeyTyped
 
     /**
      * @param args the command line arguments

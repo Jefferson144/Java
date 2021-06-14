@@ -201,9 +201,21 @@ public class Interfaz_generar_venta extends javax.swing.JFrame {
 
         Primer_nombre_apellido_C.setText("Primer nombre y apellido del cliente");
 
+        txt_nombre_cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombre_clienteKeyTyped(evt);
+            }
+        });
+
         jLabel3.setText("Tipo de documento");
 
         jLabel1.setText("Numero del documento");
+
+        txt_numero_documento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_numero_documentoKeyTyped(evt);
+            }
+        });
 
         Jt_lista_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -450,6 +462,30 @@ public class Interfaz_generar_venta extends javax.swing.JFrame {
         codigo_barras.clear();
         limpiarcajas();
     }//GEN-LAST:event_btn_terminarActionPerformed
+
+    private void txt_nombre_clienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombre_clienteKeyTyped
+        char c = evt.getKeyChar();
+        if(txt_nombre_cliente.getText().length() >=50){
+            evt.consume();
+        } else {
+            if (Character.isDigit(c)){
+                getToolkit().beep();
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txt_nombre_clienteKeyTyped
+
+    private void txt_numero_documentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_numero_documentoKeyTyped
+        char c = evt.getKeyChar();
+        if(txt_numero_documento.getText().length() >=30){
+            evt.consume();
+        } else {
+            if (Character.isLetter(c)){
+                getToolkit().beep();
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txt_numero_documentoKeyTyped
 
     /**
      * @param args the command line arguments

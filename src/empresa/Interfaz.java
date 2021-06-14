@@ -146,6 +146,7 @@ public class Interfaz extends javax.swing.JFrame {
         this.dispose();
         Interfaz_generar_venta ob = new Interfaz_generar_venta();
         ob.setVisible(true);
+        ob.limpiarcajas();
     }//GEN-LAST:event_btn_generar_ventaActionPerformed
 
     private void btn_agregar_documentoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregar_documentoMouseEntered
@@ -167,6 +168,7 @@ public class Interfaz extends javax.swing.JFrame {
         Interfaz_agregar_producto ob = new Interfaz_agregar_producto();
         ob.setVisible(true);
         this.dispose();
+        ob.limpiarcajas();
     }//GEN-LAST:event_btn_agregar_productoActionPerformed
 
     /**

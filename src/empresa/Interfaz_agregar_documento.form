@@ -112,6 +112,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_documento_nuevo">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_documento_nuevoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Jl_documentos">
       <Properties>
@@ -134,6 +137,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_documento_actualizar">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_documento_actualizarKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_guardar">
       <Properties>
