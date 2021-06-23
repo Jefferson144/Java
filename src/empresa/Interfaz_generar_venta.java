@@ -374,23 +374,33 @@ public class Interfaz_generar_venta extends javax.swing.JFrame {
                     descripcion = cod_barras;
                     cantidad_productos_descripcion = cantidadClie_pro;
                 } else {
-                    descripcion = descripcion.toString() + "-" + cod_barras;
-                    cantidad_productos_descripcion = cantidad_productos_descripcion.toString()+"-"+cantidadClie_pro;
+                    descripcion = descripcion + "-" + cod_barras;
+                    cantidad_productos_descripcion = cantidad_productos_descripcion+"-"+cantidadClie_pro;
                 }
+                //guardo el nombre del producto para colocarselo a la tabla de los productos
                 String nombre_producto = (String.valueOf(Jt_datos.getValueAt(seleccionar, 1)));
                 String cantidadOficial = (String.valueOf(Jt_datos.getValueAt(seleccionar, 2)));
+                //guardo la cantidad oficial del producto
                 cantidad_P_antiguo = Integer.parseInt(cantidadOficial);
+                //guardo el valor oficial
                 String valorOficial = (String.valueOf(Jt_datos.getValueAt(seleccionar, 3)));
+                //le asigno un modelo basico a la tabla
                 Jt_lista_productos.setModel(modelo);
+                //es igual a la cantidad2 que es la del cliente
                 cantidad_P_disminuir = cantidad2;
+                //hago la respectiva deduccion y es la que se vga actualizar
                 int producto_reducir_final = (cantidad_P_antiguo - cantidad_P_disminuir);
+                //la pongo tipo String
                 String productos_final = Integer.toString(producto_reducir_final);
+                //agrego un arreglo de 4 indices que son los que tiene la tabla
                 String[] datos = new String[4];
                 datos[0] = cod_barras;
                 datos[1] = nombre_producto;
                 datos[2] = cantidadClie_pro;
                 datos[3] = valorOficial;
+                //el modelo que es el de Jt_lista_productos los convierto en objectos y los guardo
                 modelo.addRow((Object[]) datos);
+                //guardo los codigos para actualizar en un arraylist
                 codigo_barras.add(cod_barras);
                 cantidad_productos.add(productos_final);
                 int importe = Integer.parseInt(valorOficial) * cantidad2;
