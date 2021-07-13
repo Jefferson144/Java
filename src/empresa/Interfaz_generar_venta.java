@@ -454,7 +454,6 @@ public class Interfaz_generar_venta extends javax.swing.JFrame {
         }
         tipo_documento = (String) JcomB_tipos_documentos.getSelectedItem();
         metodos.venta(descripcion,cantidad_productos_descripcion,valor_ventaF,subtotalF,iva,total_pagarF,descuento,total_pagarF,txt_nombre_cliente.getText(),tipo_documento,txt_numero_documento.getText());        
-        JOptionPane.showMessageDialog(null, "Venta generada", "VENTA GENERADA CON EXITO", JOptionPane.INFORMATION_MESSAGE);
         txt_nombre_cliente.setText("");
         txt_total_pagar.setText("");
         txt_numero_documento.setText("");
